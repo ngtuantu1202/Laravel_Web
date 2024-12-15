@@ -19,14 +19,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="{{('public/backend/css/font-awesome.css')}}" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 <script src="js/jquery2.0.3.min.js"></script>
+<!-- favicon -->
+<link rel="icon" href="{{('public/backend/images/adminicon.jpg') }}" type="image/x-icon">
+
 </head>
 <body>
 <div class="log-w3">
 <div class="w3layouts-main">
 	<h2>Đăng nhập hệ thống</h2>
 		<form action="#" method="post">
-			<input type="email" class="ggg" name="Email" placeholder="E-MAIL" required="">
-			<input type="password" class="ggg" name="Password" placeholder="PASSWORD" required="">
+			<input type="email" class="ggg" name="Email" placeholder="Nhập email" required="">
+			<input type="password" class="ggg" name="Password" placeholder="Nhập mật khẩu" required="">
 			<span><input type="checkbox" />Ghi nhớ tôi!</span>
 			<h6><a href="#">Quên mật khẩu?</a></h6>
 				<div class="clearfix"></div>

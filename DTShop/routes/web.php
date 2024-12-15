@@ -20,3 +20,4 @@ Route::get('/trang-chu', [HomeController::class, 'index']);
 
 //admin
 Route::get('/admin', [AdminController::class, 'index']); 
+Route::get('/dashboard', [AdminController::class, 'dashboard']); 
