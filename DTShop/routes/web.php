@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,10 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [HomeController::class, 'index']); 
 
+//user
+Route::get('/', [HomeController::class, 'index']); 
 Route::get('/trang-chu', [HomeController::class, 'index']);
+
+//admin
+Route::get('/admin', [AdminController::class, 'index']); 
