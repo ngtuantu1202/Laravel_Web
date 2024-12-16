@@ -59,13 +59,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <img alt="" src="{{('public/backend/images/adminicon.jpg')}}">
-                        <span class="username">Admin</span>
+                        <span class="username">
+                            <?php
+                                $name = session()->get('admin_name');
+                                if($name)
+                                {
+                                    echo "$name";
+                                } else echo 'Admin';
+                            ?>
+                        </span>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu extended logout">
                         <li><a href="#"><i class=" fa fa-suitcase"></i>Trang cá nhân</a></li>
                         <li><a href="#"><i class="fa fa-cog"></i> Cài đặt</a></li>
-                        <li><a href="login.html"><i class="fa fa-key"></i> Đăng xuất</a></li>
+                        <li><a href="{{URL::to('logout')}}"><i class="fa fa-key"></i> Đăng xuất</a></li>
                     </ul>
                 </li>
                 <!-- user login dropdown end -->

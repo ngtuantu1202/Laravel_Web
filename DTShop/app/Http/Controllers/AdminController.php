@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -22,11 +23,19 @@ class AdminController extends Controller
             ->where('admin_password',$admin_password)->first();
         if($result)
         {
-            return view("admin.dashboard");
+            session()->put('admin_name',$result->admin_name);
+            session()->put('admin_id',$result->admin_id);
+            return Redirect::to('/dashboard');
+            //return view("admin.dashboard");
         }
         else
         {
-            return redirect()->back()->with('error','Email hoặc mật khẩu không đúng');
+            return redirect()->back()->with('error','Email hoặc mật khẩu không đúng!');
         }
+    }
+    public function logout(Request $request){
+        session()->put('admin_name',null);
+        session()->put('admin_id',null);
+        return Redirect::to('/admin');
     }
 }
