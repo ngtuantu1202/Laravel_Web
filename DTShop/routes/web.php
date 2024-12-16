@@ -15,9 +15,10 @@ use App\Http\Controllers\AdminController;
 */
 
 //user
-Route::get('/', [HomeController::class, 'index']); 
-Route::get('/trang-chu', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/trang-chu', [HomeController::class, 'index'])->name('home.trang-chu');
 
 //admin
-Route::get('/admin', [AdminController::class, 'index']); 
-Route::get('/dashboard', [AdminController::class, 'dashboard']); 
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/dashboard', [AdminController::class, 'show_dashboard'])->name('admin.dashboard');
+Route::post('/admin-dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
