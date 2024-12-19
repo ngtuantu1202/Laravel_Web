@@ -3,8 +3,10 @@
     <title>Quản lý hệ thống</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates,
+    Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG,
+    SonyEricsson, Motorola web design"/>
     <script type="application/x-javascript"> addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
         }, false);
@@ -13,26 +15,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         } </script>
     <!-- bootstrap-css -->
-    <link rel="stylesheet" href="{{('public/backend/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{URL::to('/') }}/public/backend/css/bootstrap.min.css">
     <!-- //bootstrap-css -->
     <!-- Custom CSS -->
-    <link href="{{('public/backend/css/style.css')}}" rel='stylesheet' type='text/css'/>
-    <link href="{{('public/backend/css/style-responsive.css')}}" rel="stylesheet"/>
+    <link href="{{URL::to('/') }}/public/backend/css/style.css" rel='stylesheet' type='text/css'/>
+    <link href="{{URL::to('/') }}/public/backend/css/style-responsive.css" rel="stylesheet"/>
     <!-- font CSS -->
     <link
         href='//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic'
         rel='stylesheet' type='text/css'>
     <!-- font-awesome icons -->
-    <link rel="stylesheet" href="{{('public/backend/css/font.css')}}" type="text/css"/>
-    <link href="{{('public/backend/css/font-awesome.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{('public/backend/css/morris.css" type="text/css')}}"/>
+    <link rel="stylesheet" href="{{URL::to('/') }}/public/backend/css/font.css'" type="text/css"/>
+    <link href="{{URL::to('/') }}/public/backend/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{URL::to('/') }}/public/backend/css/morris.css" type="text/css"/>
     <!-- calendar -->
-    <link rel="stylesheet" href="{{('public/backend/css/monthly.css')}}">
+    <link rel="stylesheet" href="{{URL::to('/') }}/public/backend/css/monthly.css">
     <!-- //calendar -->
     <!-- //font-awesome icons -->
-    <script src="{{('public/backend/js/jquery2.0.3.min.js')}}"></script>
-    <script src="{{('public/backend/js/raphael-min.js')}}"></script>
-    <script src="{{('public/backend/js/morris.js')}}"></script>
+    <script src="{{URL::to('/') }}/public/backend/js/jquery2.0.3.min.js"></script>
+    <script src="{{URL::to('/') }}/public/backend/js/raphael-min.js"></script>
+    <script src="{{URL::to('/') }}/public/backend/js/morris.js"></script>
 </head>
 <body>
 <section id="container">
@@ -58,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- user login dropdown start-->
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <img alt="" src="{{('public/backend/images/adminicon.jpg')}}">
+                        <img alt="" src="{{URL::to('/') }}/public/backend/images/adminicon.jpg">
                         <span class="username">
                             <?php
                                 $name = session()->get('admin_name');
@@ -77,7 +79,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </li>
                 <!-- user login dropdown end -->
-
             </ul>
             <!--search & user info end-->
         </div>
@@ -100,28 +101,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-book"></i>
+                            <span>Danh mục loại sản phẩm</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="{{URL::to('/add-category')}}">Thêm loại sản phẩm</a></li>
+                            <li><a href="{{URL::to('/all-category')}}">Liệt kê loại sản phẩm</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Danh mục hiệu sản phẩm</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="{{URL::to('/add-brand')}}">Thêm hiệu sản phẩm</a></li>
+                            <li><a href="{{URL::to('/all-brand')}}">Liệt kê hiệu sản phẩm</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
                             <span>Danh mục sản phẩm</span>
                         </a>
                         <ul class="sub">
                             <li><a href="typography.html">Thêm sản phẩm</a></li>
                             <li><a href="glyphicon.html">Liệt kê sản phẩm</a></li>
                         </ul>
-                    </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;">
-                            <i class="fa fa-book"></i>
-                            <span>Danh mục loại sản phẩm</span>
-                        </a>
-                        <ul class="sub">
-                            <li><a href="typography.html">Thêm sản phẩm</a></li>
-                            <li><a href="glyphicon.html">Liệt kê sản phẩm</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa fa-user"></i>
-                            <span>Trang đăng nhập</span>
-                        </a>
                     </li>
                 </ul>
             </div>
@@ -134,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <section id="main-content">
         <section class="wrapper">
 
-            @yield('admin_content');
+            @yield('content_admin')
 
         </section>
         <!-- footer -->
@@ -147,14 +154,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </section>
     <!--main content end-->
 </section>
-<script src="{{('public/backend/js/bootstrap.js')}}"></script>
-<script src="{{('public/backend/js/jquery.dcjqaccordion.2.7.js')}}"></script>
-<script src="{{('public/backend/js/scripts.js')}}"></script>
-<script src="{{('public/backend/js/jquery.slimscroll.js')}}"></script>
-<script src="{{('public/backend/js/jquery.nicescroll.js')}}"></script>
+<script src="{{URL::to('/') }}/public/backend/js/bootstrap.js"></script>
+<script src="{{URL::to('/') }}/public/backend/js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="{{URL::to('/') }}/public/backend/js/scripts.js"></script>
+<script src="{{URL::to('/') }}/public/backend/js/jquery.slimscroll.js"></script>
+<script src="{{URL::to('/') }}/public/backend/js/jquery.nicescroll.js"></script>
 <!--[if lte IE 8]>
 <script language="javascript" type="text/javascript" src="{{('public/backend/js/flot-chart/excanvas.min.js')}}"></script><![endif]-->
-<script src="{{('public/backend/js/jquery.scrollTo.js')}}"></script>
+<script src="{{URL::to('/') }}/public/backend/js/jquery.scrollTo.js"></script>
 <!-- morris JavaScript -->
 <script>
     $(document).ready(function () {

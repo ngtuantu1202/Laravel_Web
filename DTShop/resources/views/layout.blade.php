@@ -6,26 +6,26 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Home | DT-Shop</title>
-    <link href="{{('public/frontend/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{('public/frontend/css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{('public/frontend/css/prettyPhoto.css')}}" rel="stylesheet">
-    <link href="{{('public/frontend/css/price-range.css')}}" rel="stylesheet">
-    <link href="{{('public/frontend/css/animate.css')}}" rel="stylesheet">
-    <link href="{{('public/frontend/css/main.css')}}" rel="stylesheet">
-    <link href="{{('public/frontend/css/responsive.css')}}" rel="stylesheet">
+    <link href="{{URL::to('/') }}/public/frontend/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{URL::to('/') }}/public/frontend/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{URL::to('/') }}/public/frontend/css/prettyPhoto.css" rel="stylesheet">
+    <link href="{{URL::to('/') }}/public/frontend/css/price-range.css" rel="stylesheet">
+    <link href="{{URL::to('/') }}/public/frontend/css/animate.css" rel="stylesheet">
+    <link href="{{URL::to('/') }}/public/frontend/css/main.css" rel="stylesheet">
+    <link href="{{URL::to('/') }}/public/frontend/css/responsive.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="{{('public/frontend/js/html5shiv.js')}}"></script>
     <script src="{{('public/frontend/js/respond.min.js')}}"></script>
     <![endif]-->
     <link rel="shortcut icon" href="{{('public/frontend/images/ico/favicon.ico')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="{{('public/frontend/images/ico/apple-touch-icon-144-precomposed.png')}}">
+          href="{{URL::to('/') }}/public/frontend/images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="{{('public/frontend/images/ico/apple-touch-icon-114-precomposed.png')}}">
+          href="{{URL::to('/') }}/public/frontend/images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="{{('public/frontend/images/ico/apple-touch-icon-72-precomposed.png')}}">
+          href="{{URL::to('/') }}/public/frontend/images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed"
-          href="{{('public/frontend/images/ico/apple-touch-icon-57-precomposed.png')}}">
+          href="{{URL::to('/') }}/public/frontend/images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
 <body>
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="../../index.php"><img src="{{('public/frontend/images/home/logo.png')}}" alt=""/></a>
+                        <a href="../../index.php"><img src="{{URL::to('/') }}/public/frontend/images/home/logo.png" alt=""/></a>
                     </div>
                     <div class="btn-group pull-right">
                         <div class="btn-group">
@@ -169,9 +169,9 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{('public/frontend/images/home/girl1.jpg')}}" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/girl1.jpg" class="girl img-responsive"
                                      alt=""/>
-                                <img src="{{('public/frontend/images/home/pricing.png')}}'" class="pricing" alt=""/>
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/pricing.png'" class="pricing" alt=""/>
                             </div>
                         </div>
                         <div class="item">
@@ -183,9 +183,9 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{('public/frontend/images/home/girl2.jpg')}}" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/girl2.jpg" class="girl img-responsive"
                                      alt=""/>
-                                <img src="{{('public/frontend/images/home/pricing.png')}}" class="pricing" alt=""/>
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/pricing.png" class="pricing" alt=""/>
                             </div>
                         </div>
 
@@ -198,9 +198,9 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{('public/frontend/images/home/girl3.jpg')}}" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/girl3.jpg" class="girl img-responsive"
                                      alt=""/>
-                                <img src="{{('public/frontend/images/home/pricing.png')}}" class="pricing" alt=""/>
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/pricing.png" class="pricing" alt=""/>
                             </div>
                         </div>
 
@@ -357,7 +357,7 @@
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="{{('public/frontend/images/home/shipping.jpg')}}" alt=""/>
+                        <img src="{{URL::to('/') }}/public/frontend/images/home/shipping.jpg" alt=""/>
                     </div><!--/shipping-->
 
                 </div>
@@ -385,7 +385,7 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{('public/frontend/images/home/iframe1.png')}}" alt=""/>
+                                    <img src="{{URL::to('/') }}/public/frontend/images/home/iframe1.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -400,7 +400,7 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{('public/frontend/images/home/iframe1.png')}}" alt=""/>
+                                    <img src="{{URL::to('/') }}/public/frontend/images/home/iframe1.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -415,7 +415,7 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{('public/frontend/images/home/iframe1.png')}}" alt=""/>
+                                    <img src="{{URL::to('/') }}/public/frontend/images/home/iframe1.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -430,7 +430,7 @@
                         <div class="video-gallery text-center">
                             <a href="#">
                                 <div class="iframe-img">
-                                    <img src="{{('public/frontend/images/home/iframe1.png')}}" alt=""/>
+                                    <img src="{{URL::to('/') }}/public/frontend/images/home/iframe1.png" alt=""/>
                                 </div>
                                 <div class="overlay-icon">
                                     <i class="fa fa-play-circle-o"></i>
@@ -443,7 +443,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="address">
-                        <img src="{{('public/frontend/images/home/map.png')}}" alt=""/>
+                        <img src="{{URL::to('/') }}/public/frontend/images/home/map.png" alt=""/>
                         <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
                     </div>
                 </div>
@@ -531,11 +531,11 @@
 </footer><!--/Footer-->
 
 
-<script src="{{('public/frontend/js/jquery.js')}}"></script>
-<script src="{{('public/frontend/js/bootstrap.min.js')}}"></script>
-<script src="{{('public/frontend/js/jquery.scrollUp.min.js')}}"></script>
-<script src="{{('public/frontend/js/price-range.js')}}"></script>
-<script src="{{('public/frontend/js/jquery.prettyPhoto.js')}}"></script>
-<script src="{{('public/frontend/js/main.js')}}"></script>
+<script src="{{URL::to('/') }}/public/frontend/js/jquery.js"></script>
+<script src="{{URL::to('/') }}/public/frontend/js/bootstrap.min.js"></script>
+<script src="{{URL::to('/') }}/public/frontend/js/jquery.scrollUp.min.js"></script>
+<script src="{{URL::to('/') }}/public/frontend/js/price-range.js"></script>
+<script src="{{URL::to('/') }}/public/frontend/js/jquery.prettyPhoto.js"></script>
+<script src="{{URL::to('/') }}/public/frontend/js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 @extends('layout_admin')
-@section('admin_content')
+@section('content_admin')
     <h3>Chào mừng bạn đến với trang quản lý hệ thống</h3>
 
     <div class="agil-info-calendar">

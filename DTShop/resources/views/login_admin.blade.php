@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <head>
     <title>Đăng nhập Admin</title>
@@ -43,16 +44,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         @endif
 
-        <form action="{{URL::to('/admin-dashboard')}}" method="post">
+        <form action="{{URL::to('/dashboard')}}" method="post">
             @csrf <!-- chống sql injection -->
-            <input type="email" class="ggg" name="admin_email" placeholder="Nhập email" required="">
+            <input type="text" class="ggg" name="admin_email" placeholder="Nhập tên TK" required="">
             <input type="password" class="ggg" name="admin_password" placeholder="Nhập mật khẩu" required="">
-            <span><input type="checkbox"/>Ghi nhớ tôi!</span>
-            <h6><a href="#">Quên mật khẩu?</a></h6>
             <div class="clearfix"></div>
             <input type="submit" value="Đăng nhập" name="login">
         </form>
-        <p>Chưa có tài khoản?<a href="registration.html">Đăng ký ngay!</a></p>
     </div>
 </div>
 <script src="{{('public/backend/js/bootstrap.js')}}"></script>
