@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -78,4 +80,20 @@ class BrandController extends Controller
 
         return Redirect::to('/all-brand');
     }
+    //END
+
+
+    public function showBrandHome($brand_id)
+    {
+        $categories = Category::where('categories_status', 1)->get();
+        $brands = Brand::where('brand_status', 1)->get();
+
+        $products_by_brand = Product::join('brand', 'products.brand_id', '=', 'brand.brand_id')
+            ->where('brand.brand_id', $brand_id)
+            ->get(['products.*', 'brand.brand_name']);
+        $brand_name = Brand::where('brand_id', $brand_id)->first()->get();
+        return view("user.brand.show_brand", compact('categories', 'brands',
+            'products_by_brand', 'brand_name'));
+    }
+
 }

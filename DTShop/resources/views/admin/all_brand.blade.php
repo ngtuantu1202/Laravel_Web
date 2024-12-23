@@ -56,19 +56,19 @@
                             <td>
                             <span class="text-ellipsis">
                                 @if($brand->brand_status == 1)
-                                    <a href="{{URL::to('/active-brand/' .$brand->brand_id)}}"><span class="fa-solid fa-eye"></span></a>
+                                    <a href="{{ route('brand.active', ['brand_id' => $brand->brand_id]) }}"><span class="fa-solid fa-eye"></span></a>
                                 @else
-                                    <a href="{{URL::to('/unactive-brand/' .$brand->brand_id)}}"><span class="fa-solid fa-eye-slash"></span></a>
+                                    <a href="{{ route('brand.unactive', ['brand_id' => $brand->brand_id]) }}"><span class="fa-solid fa-eye-slash"></span></a>
                                 @endif
                             </span>
                             </td>
                             <td><span class="text-ellipsis">{{ $brand->created_at }}</span></td>
                             <td>
-                                <a href="{{URL::to('/edit-brand/' .$brand->brand_id)}}" class="active" ui-toggle-class="">
+                                <a href="{{ route('brand.edit', ['brand_id' => $brand->brand_id]) }}" class="active" ui-toggle-class="">
                                     <i class="fa fa-pencil-square-o text-success text-active"></i>
                                 </a>
                                 <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
-                                   href="{{URL::to('/delete-brand/' .$brand->brand_id)}}" class="active" ui-toggle-class="">
+                                   href="{{ route('brand.delete', ['brand_id' => $brand->brand_id]) }}" class="active" ui-toggle-class="">
                                     <i class="fa fa-trash-o text-danger text"></i>
                                 </a>
                             </td>

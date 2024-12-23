@@ -5,11 +5,11 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Sửa loại sản phẩm
+                    Cập nhật loại sản phẩm
                 </header>
                 <div class="panel-body">
                     <div class="position-center">
-                        <form role="form" action="{{ URL::to('/update-category/' . $edit_category->categories_id) }}" method="post">
+                        <form role="form" action="{{ route('category.update', ['categories_id' => $edit_category->categories_id]) }}" method="post">
                             @csrf <!-- Token CSRF -->
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên loại sản phẩm</label>

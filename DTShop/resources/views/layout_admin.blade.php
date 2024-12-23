@@ -104,8 +104,8 @@
                             <span>Danh mục loại sản phẩm</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="{{URL::to('/add-category')}}">Thêm loại sản phẩm</a></li>
-                            <li><a href="{{URL::to('/all-category')}}">Liệt kê loại sản phẩm</a></li>
+                            <li><a href="{{route('category.add')}}">Thêm loại sản phẩm</a></li>
+                            <li><a href="{{route('category.all')}}">Liệt kê loại sản phẩm</a></li>
                         </ul>
                     </li>
 
@@ -115,8 +115,8 @@
                             <span>Danh mục hiệu sản phẩm</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="{{URL::to('/add-brand')}}">Thêm hiệu sản phẩm</a></li>
-                            <li><a href="{{URL::to('/all-brand')}}">Liệt kê hiệu sản phẩm</a></li>
+                            <li><a href="{{route('brand.add')}}">Thêm hiệu sản phẩm</a></li>
+                            <li><a href="{{route('brand.all')}}">Liệt kê hiệu sản phẩm</a></li>
                         </ul>
                     </li>
 
@@ -126,8 +126,8 @@
                             <span>Danh mục sản phẩm</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="typography.html">Thêm sản phẩm</a></li>
-                            <li><a href="glyphicon.html">Liệt kê sản phẩm</a></li>
+                            <li><a href="{{route('product.add')}}">Thêm sản phẩm</a></li>
+                            <li><a href="{{route('product.all')}}">Liệt kê sản phẩm</a></li>
                         </ul>
                     </li>
                 </ul>

@@ -56,19 +56,19 @@
                         <td>
                             <span class="text-ellipsis">
                                 @if($category->categories_status == 1)
-                                    <a href="{{URL::to('/active-category/' .$category->categories_id)}}"><span class="fa-solid fa-eye"></span></a>
+                                    <a href="{{route('category.active' , ['categories_id' =>$category->categories_id])}}"><span class="fa-solid fa-eye"></span></a>
                                 @else
-                                    <a href="{{URL::to('/unactive-category/' .$category->categories_id)}}"><span class="fa-solid fa-eye-slash"></span></a>
+                                    <a href="{{ route('category.unactive', ['categories_id' => $category->categories_id]) }}"><span class="fa-solid fa-eye-slash"></span></a>
                                 @endif
                             </span>
                         </td>
                         <td><span class="text-ellipsis">{{ $category->created_at }}</span></td>
                         <td>
-                            <a href="{{URL::to('/edit-category/' .$category->categories_id)}}" class="active" ui-toggle-class="">
+                            <a href="{{ route('category.edit', ['categories_id' => $category->categories_id]) }}" class="active" ui-toggle-class="">
                                 <i class="fa fa-pencil-square-o text-success text-active"></i>
                             </a>
                             <a onclick="return confirm('Bạn có chắc chắn muốn xóa?')"
-                                href="{{URL::to('/delete-category/' .$category->categories_id)}}" class="active" ui-toggle-class="">
+                               href="{{ route('category.delete', ['categories_id' => $category->categories_id]) }}" class="active" ui-toggle-class="">
                                 <i class="fa fa-trash-o text-danger text"></i>
                             </a>
                         </td>

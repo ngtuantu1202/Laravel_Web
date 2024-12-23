@@ -5,11 +5,11 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-                    Sửa hiệu sản phẩm
+                    Cập nhật hiệu sản phẩm
                 </header>
                 <div class="panel-body">
                     <div class="position-center">
-                        <form role="form" action="{{ URL::to('/update-brand/' . $edit_brand->brand_id) }}" method="post">
+                        <form role="form" action="{{ route('brand.update', ['brand_id' => $edit_brand->brand_id]) }}" method="post">
                             @csrf <!-- Token CSRF -->
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên hiệu sản phẩm</label>

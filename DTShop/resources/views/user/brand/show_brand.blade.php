@@ -3,8 +3,11 @@
 @section('content')
 
     <div class="features_items"><!--features_items-->
-            <h2 class="title text-center">Sản phẩm mới</h2>
-        @foreach($all_product as $key => $product)
+        @foreach($brand_name as $brand)
+            <h2 class="title text-center">{{ $brand->brand_name }}</h2>
+        @endforeach
+
+        @foreach($products_by_brand as $product)
             <div class="col-sm-4">
                 <div class="product-image-wrapper">
 
@@ -24,7 +27,6 @@
                     </div>
                 </div>
             </div>
-
         @endforeach
     </div><!--features_items-->
 
@@ -70,7 +72,7 @@
     {{--                                         alt=""/>--}}
     {{--                                    <h2>$56</h2>--}}
     {{--                                    <p>Easy Polo Black Edition</p>--}}
-    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i--}}
+    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i
     {{--                                            class="fa fa-shopping-cart"></i>Add to cart</a>--}}
     {{--                                </div>--}}
 
@@ -85,7 +87,7 @@
     {{--                                         alt=""/>--}}
     {{--                                    <h2>$56</h2>--}}
     {{--                                    <p>Easy Polo Black Edition</p>--}}
-    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i--}}
+    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i
     {{--                                            class="fa fa-shopping-cart"></i>Add to cart</a>--}}
     {{--                                </div>--}}
 
@@ -96,58 +98,11 @@
     {{--                        <div class="product-image-wrapper">--}}
     {{--                            <div class="single-products">--}}
     {{--                                <div class="productinfo text-center">--}}
-    {{--                                    <img src="{{('public/frontend/images/home/recommend1.jpg')}}"--}}
+    {{--                                    <img src="{{('public/frontend/images/home/recommend1.jpg')}}"
     {{--                                         alt=""/>--}}
     {{--                                    <h2>$56</h2>--}}
     {{--                                    <p>Easy Polo Black Edition</p>--}}
-    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i--}}
-    {{--                                            class="fa fa-shopping-cart"></i>Add to cart</a>--}}
-    {{--                                </div>--}}
-
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                </div>--}}
-    {{--                <div class="item">--}}
-    {{--                    <div class="col-sm-4">--}}
-    {{--                        <div class="product-image-wrapper">--}}
-    {{--                            <div class="single-products">--}}
-    {{--                                <div class="productinfo text-center">--}}
-    {{--                                    <img src="{{('public/frontend/images/home/recommend1.jpg')}}"--}}
-    {{--                                         alt=""/>--}}
-    {{--                                    <h2>$56</h2>--}}
-    {{--                                    <p>Easy Polo Black Edition</p>--}}
-    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i--}}
-    {{--                                            class="fa fa-shopping-cart"></i>Add to cart</a>--}}
-    {{--                                </div>--}}
-
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="col-sm-4">--}}
-    {{--                        <div class="product-image-wrapper">--}}
-    {{--                            <div class="single-products">--}}
-    {{--                                <div class="productinfo text-center">--}}
-    {{--                                    <img src="{{('public/frontend/images/home/recommend1.jpg')}}"--}}
-    {{--                                         alt=""/>--}}
-    {{--                                    <h2>$56</h2>--}}
-    {{--                                    <p>Easy Polo Black Edition</p>--}}
-    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i--}}
-    {{--                                            class="fa fa-shopping-cart"></i>Add to cart</a>--}}
-    {{--                                </div>--}}
-
-    {{--                            </div>--}}
-    {{--                        </div>--}}
-    {{--                    </div>--}}
-    {{--                    <div class="col-sm-4">--}}
-    {{--                        <div class="product-image-wrapper">--}}
-    {{--                            <div class="single-products">--}}
-    {{--                                <div class="productinfo text-center">--}}
-    {{--                                    <img src="{{('public/frontend/images/home/recommend1.jpg')}}"--}}
-    {{--                                         alt=""/>--}}
-    {{--                                    <h2>$56</h2>--}}
-    {{--                                    <p>Easy Polo Black Edition</p>--}}
-    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i--}}
+    {{--                                    <a href="#" class="btn btn-default add-to-cart"><i
     {{--                                            class="fa fa-shopping-cart"></i>Add to cart</a>--}}
     {{--                                </div>--}}
 
@@ -156,11 +111,11 @@
     {{--                    </div>--}}
     {{--                </div>--}}
     {{--            </div>--}}
-    {{--            <a class="left recommended-item-control" href="#recommended-item-carousel"--}}
+    {{--            <a class="left recommended-item-control" href="#recommended-item-carousel"
     {{--               data-slide="prev">--}}
     {{--                <i class="fa fa-angle-left"></i>--}}
     {{--            </a>--}}
-    {{--            <a class="right recommended-item-control" href="#recommended-item-carousel"--}}
+    {{--            <a class="right recommended-item-control" href="#recommended-item-carousel"
     {{--               data-slide="next">--}}
     {{--                <i class="fa fa-angle-right"></i>--}}
     {{--            </a>--}}

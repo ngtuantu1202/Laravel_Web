@@ -10,7 +10,7 @@
                 <div class="panel-body">
                     <div class="position-center">
 
-                        <form role="form" action="{{URL::to('/save-category')}}" method="post">
+                        <form role="form" action="{{route('category.save')}}" method="post">
                             @csrf <!-- Token CSRF -->
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên loại sản phẩm</label>

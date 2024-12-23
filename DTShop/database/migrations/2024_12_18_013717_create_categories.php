@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('categories_id');
             $table->string('categories_name');
             $table->string('categories_desc');
-            $table->string('categories_status');
+            $table->integer('categories_status');
             $table->timestamps();
         });
     }

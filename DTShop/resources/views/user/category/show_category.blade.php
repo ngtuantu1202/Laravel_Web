@@ -3,8 +3,11 @@
 @section('content')
 
     <div class="features_items"><!--features_items-->
-            <h2 class="title text-center">Sản phẩm mới</h2>
-        @foreach($all_product as $key => $product)
+        @foreach($category_name as $category)
+            <h2 class="title text-center">{{ $category->categories_name }}</h2>
+        @endforeach
+
+        @foreach($categories_by_id as $key => $product)
             <div class="col-sm-4">
                 <div class="product-image-wrapper">
 

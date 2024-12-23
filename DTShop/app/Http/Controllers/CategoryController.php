@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Illuminate\Support\Facades\Session;
@@ -80,6 +82,21 @@ class CategoryController extends Controller
         }
 
         return Redirect::to('/all-category');
+    }
+    //END
+
+    public function showCategoryHome($categories_id)
+    {
+        $categories = Category::where('categories_status', 1)->get();
+        $brands = Brand::where('brand_status', 1)->get();
+
+        $categories_by_id = Product::join('categories', 'products.categories_id', '=', 'categories.categories_id')
+            ->where('categories.categories_id', $categories_id)
+            ->get(['products.*', 'categories.categories_name']);
+
+        $category_name = Category::where('categories_id', $categories_id)->limit(1)->get();
+
+        return view("user.category.show_category", compact('categories', 'brands', 'categories_by_id', 'category_name'));
     }
 
 }
