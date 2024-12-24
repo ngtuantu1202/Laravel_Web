@@ -36,15 +36,19 @@
                     <h2>{{ $value->product_name }}</h2>
                     <p>ID Sản phẩm: {{ $value->product_id }}</p>
                     <img src="{{URL::to('/') }}/public/frontend/images/product-details/rating.png" alt=""/>
+                    <form action="{{route('cart.save')}}" method="POST">
+                        @csrf
                     <span>
-									<span>{{ number_format($value->product_price). 'VND' }}</span>
-									<label>Số lượng:</label>
-									<input type="number" min="1" max="100" value="1"/>
-									<button type="button" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Thêm vào giỏ hàng
-									</button>
-								</span>
+                        <span>{{ number_format($value->product_price). 'VND' }}</span>
+                        <label>Số lượng:</label>
+                        <input name="qly" type="number" min="1" max="100" value="1"/>
+                        <input name="productid_hidden" type="hidden" value="{{$value->product_id}}"/>
+                        <button type="submit" class="btn btn-fefault cart">
+                            <i class="fa fa-shopping-cart"></i>
+                            Thêm giỏ hàng
+                        </button>
+                    </span>
+                    </form>
                     <p><b>Tình trạng:</b> Còn hàng</p>
                     <p><b>Danh mục:</b> {{ $value->categories_name }}</p>
                     <p><b>Thương hiệu:</b> {{$value->brand_name}}</p>
@@ -122,7 +126,7 @@
                                         <div class="productinfo text-center">
                                             <img
                                                 src="{{ URL::to('/') }}/public/upload/product/{{ $splienquan->product_image }}"
-                                                height="300" width="100" alt=""/>
+                                                alt="" style="max-height: 300px; width: auto;"/>
                                             <h2>{{ number_format($splienquan->product_price) }} VND</h2>
                                             <p>{{ $splienquan->product_name }}</p>
                                             <a href="#" class="btn btn-default add-to-cart">

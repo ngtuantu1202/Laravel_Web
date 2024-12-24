@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +26,8 @@ Route::get('/loai-san-pham/{categoried_id}', [CategoryController::class, 'showCa
 Route::get('/hieu-san-pham/{brand_id}', [BrandController::class, 'showBrandHome'])->name('home.hieu-san-pham');
 //chi tiet sp
 Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detailProduct'])->name('home.detail');
-
+//gio hang
+Route::post('/save-cart', [CartController::class, 'saveCart'])->name('cart.save');
 
 
                                         /* ADMIN */

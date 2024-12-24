@@ -36,7 +36,7 @@
                 <!-- Logo -->
                 <div class="col-sm-4">
                     <div class="logo">
-                        <a href="../../index.php">
+                        <a href="{{route('home.trang-chu')}}">
                             <img src="{{ URL::to('/') }}/public/frontend/images/home/logodt.png" alt="" width="139" height="auto" />
                         </a>
                     </div>
