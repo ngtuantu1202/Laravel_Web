@@ -30,77 +30,33 @@
 
 <body>
 <header id="header"><!--header-->
-    <div class="header_top"><!--header_top-->
+    <div class="header-middle">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
-                    <div class="contactinfo">
-                        <ul class="nav nav-pills">
-                            <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="social-icons pull-right">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div><!--/header_top-->
-
-    <div class="header-middle"><!--header-middle-->
-        <div class="container">
-            <div class="row">
+                <!-- Logo -->
                 <div class="col-sm-4">
-                    <div class="logo pull-left">
-                        <a href="../../index.php"><img src="{{URL::to('/') }}/public/frontend/images/home/logo.png" alt=""/></a>
-                    </div>
-                    <div class="btn-group pull-right">
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                USA
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canada</a></li>
-                                <li><a href="#">UK</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-                                DOLLAR
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Canadian Dollar</a></li>
-                                <li><a href="#">Pound</a></li>
-                            </ul>
-                        </div>
+                    <div class="logo">
+                        <a href="../../index.php">
+                            <img src="{{ URL::to('/') }}/public/frontend/images/home/logodt.png" alt="" width="139" height="auto" />
+                        </a>
                     </div>
                 </div>
+                <!-- Menu -->
                 <div class="col-sm-8">
-                    <div class="shop-menu pull-right">
+                    <div class="shop-menu">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                            <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                            <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+                            <li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
+                            <li><a href="#"><i class="fa fa-star"></i> Danh sách ước</a></li>
+                            <li><a href="#"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
+                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            <li><a href="#"><i class="fa fa-lock"></i> Đăng nhập</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div><!--/header-middle-->
+    </div>
+    <!--/header-middle-->
 
     <div class="header-bottom"><!--header-bottom-->
         <div class="container">
@@ -132,7 +88,7 @@
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
-                        <input type="text" placeholder="Search"/>
+                        <input type="text" placeholder="Tìm kiếm..."/>
                     </div>
                 </div>
             </div>
@@ -154,45 +110,49 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free E-Commerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1><span>DT</span>Group</h1>
+                                <h2>Yến sào hồng sâm</h2>
+                                <p>Yến sào Hồng sâm Collagen DT Nest là sự kết hợp hài hòa giữa tinh hoa yến đảo
+                                    và dược liệu thiên nhiên trên nền tảng khoa học công nghệ hiện đại.
+                                    Yến sào Hồng Sâm Collagen DT Nest mang đến nguồn dưỡng chất dồi dào,
+                                    ngăn ngừa sự lão hóa giúp trẻ hóa làn da.
+                                </p>
+                                <button type="button" class="btn btn-default get">Nhận ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/girl1.jpg" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/yenhongsam.png" class="girl img-responsive"
                                      alt=""/>
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/pricing.png'" class="pricing" alt=""/>
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>100% Responsive Design</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1><span>DT</span>Group</h1>
+                                <h2>Sửa tổ yến</h2>
+                                <p>Sữa tổ yến bổ sung Canxi – Orafti DT Nest là sự kết hợp hài hòa giữa tinh hoa yến đảo,
+                                    các loại vi chất và nguồn nhiên liệu sữa cao cấp được nhập khẩu từ Châu Âu.
+                                    Sữa tổ yến bổ sung Canxi – Orafti DT Nest ngăn ngừa loãng xương,
+                                    cải thiện hệ tiêu hóa và hỗ trợ tim mạch khỏe mạnh.
+                                </p>
+                                <button type="button" class="btn btn-default get">Nhận ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/girl2.jpg" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/suayen.png" class="girl img-responsive"
                                      alt=""/>
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/pricing.png" class="pricing" alt=""/>
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free Ecommerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                <h1><span>DT</span>Group</h1>
+                                <h2>Yến đông trùng hạ thảo</h2>
+                                <p>Sản phẩm yến sào đông trùng hạ thảo là một loại thực phẩm bổ sung dành
+                                    cho người bị suy nhược cơ thể, được sản xuất bởi DTNEST Khánh Hòa.
+                                </p>
+                                <button type="button" class="btn btn-default get">Nhận ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/girl3.jpg" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/dongtrunghathao.png" class="girl img-responsive"
                                      alt=""/>
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/pricing.png" class="pricing" alt=""/>
                             </div>
                         </div>
 
@@ -254,8 +214,9 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="companyinfo">
-                        <h2><span>e</span>-shopper</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+                        <h2><span>dt</span>-Group</h2>
+                        <p>Chào mừng bạn đến với shop thực phẩm rau củ sạch của chúng tôi,
+                            với kinh nghiệm mua bán rau củ trong 10 năm, tận tình chăm sóc và chu đáo với khách hàng</p>
                     </div>
                 </div>
                 <div class="col-sm-7">

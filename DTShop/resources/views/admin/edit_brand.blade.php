@@ -9,7 +9,7 @@
                 </header>
                 <div class="panel-body">
                     <div class="position-center">
-                        <form role="form" action="{{ route('brand.update', ['brand_id' => $edit_brand->brand_id]) }}" method="post">
+                        <form role="form" action="{{ route('brand.update', ['product_id' => $edit_brand->brand_id]) }}" method="post">
                             @csrf <!-- Token CSRF -->
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tên hiệu sản phẩm</label>

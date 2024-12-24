@@ -169,5 +169,31 @@ class ProductController extends Controller
         }
 
         return Redirect::to('/all-product');
+    }//END
+
+    function detailProduct($product_id)
+    {
+        $categories = Category::where('categories_status', 1)->get();
+        $brands = Brand::where('brand_status', 1)->get();
+        $detail_product = Product::join('categories', 'products.categories_id', '=', 'categories.categories_id')
+            ->join('brand', 'products.brand_id', '=', 'brand.brand_id')
+            ->where('products.product_id', $product_id)
+            ->get(['products.*', 'categories.categories_name', 'brand.brand_name']);
+
+        if ($detail_product->isNotEmpty()) {
+            $categories_id = $detail_product->first()->categories_id; }
+        else {
+            return redirect()->back()->with('error', 'Sản phẩm không tồn tại.');
+        }
+
+        $related_product = Product::join('categories', 'products.categories_id', '=', 'categories.categories_id')
+            ->join('brand', 'products.brand_id', '=', 'brand.brand_id')
+            ->where('categories.categories_id', $categories_id)
+            ->whereNotIn('products.product_id', [$product_id])
+            ->get(['products.*', 'categories.categories_name', 'brand.brand_name']);
+
+        return view('user.product.show_details', compact('categories', 'brands',
+            'detail_product', 'related_product'));
+
     }
 }

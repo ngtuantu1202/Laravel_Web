@@ -15,32 +15,7 @@ use App\Http\Controllers\AdminController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
-//Route::middleware('auth')->group(function () {
-//    Route::get('/', [HomeController::class, 'index'])->name('home.index');
-//    Route::get('/trang-chu', [HomeController::class, 'index'])->name('home.trang-chu');
-//    // Các route khác của người dùng
-//});
-//Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
-//    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-//    Route::post('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-//    Route::get('/dashboard', [AdminController::class, 'show_dashboard'])->name('admin.show_dashboard');
-//    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-//
-//    Route::get('/add-category', [CategoryController::class, 'add_category'])->name('admin.add-category');
-//    Route::get('/all-category', [CategoryController::class, 'all_category'])->name('admin.all-category');
-//    Route::post('/save-category', [CategoryController::class, 'save_category']);
-//    Route::get('/active-category/{categories_id}', [CategoryController::class, 'active_category']);
-//    Route::get('/unactive-category/{categories_id}', [CategoryController::class, 'unactive_category']);
-//    Route::get('/edit-category/{categories_id}', [CategoryController::class, 'edit_category']);
-//    Route::get('/delete-category/{categories_id}', [CategoryController::class, 'delete_category']);
-//    Route::post('/update-category/{categories_id}', [CategoryController::class, 'update_category']);
-//});
-
-
-
-
-                                        /* USER */
+*/                                     /* USER */
 //home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/trang-chu', [HomeController::class, 'index'])->name('home.trang-chu');
@@ -48,7 +23,8 @@ Route::get('/trang-chu', [HomeController::class, 'index'])->name('home.trang-chu
 Route::get('/loai-san-pham/{categoried_id}', [CategoryController::class, 'showCategoryHome'])->name('home.loai-san-pham');
 //hieu sp
 Route::get('/hieu-san-pham/{brand_id}', [BrandController::class, 'showBrandHome'])->name('home.hieu-san-pham');
-
+//chi tiet sp
+Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detailProduct'])->name('home.detail');
 
 
 

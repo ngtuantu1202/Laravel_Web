@@ -8,6 +8,7 @@
         @endforeach
 
         @foreach($products_by_brand as $product)
+            <a href="{{route('home.detail', ['product_id'=>$product->product_id])}}">
             <div class="col-sm-4">
                 <div class="product-image-wrapper">
 
@@ -27,6 +28,7 @@
                     </div>
                 </div>
             </div>
+            </a>
         @endforeach
     </div><!--features_items-->
 
