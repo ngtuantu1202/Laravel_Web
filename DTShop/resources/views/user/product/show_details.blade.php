@@ -148,6 +148,16 @@
             </a>
         </div>
     </div><!--/recommended_items-->
+
+    <script>
+        $(document).ready(function () {
+            $('#recommended-item-carousel').carousel({
+                interval: 3000 // Tự động cuộn sau 3 giây
+            });
+        });
+
+    </script>
 @endsection
+
 
 

@@ -28,7 +28,7 @@ Route::get('/hieu-san-pham/{brand_id}', [BrandController::class, 'showBrandHome'
 Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detailProduct'])->name('home.detail');
 //gio hang
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('cart.save');
-
+Route::get('/show-cart', [CartController::class, 'showCart'])->name('cart.show');
 
                                         /* ADMIN */
 //home
