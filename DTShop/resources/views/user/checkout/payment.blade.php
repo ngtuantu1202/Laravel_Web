@@ -1,12 +1,17 @@
 @extends('layout')
 @section('content')
+
     <section id="cart_items">
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
                     <li><a href="{{route('home.trang-chu')}}">Trang chủ</a></li>
-                    <li class="active">Giỏ hàng</li>
+                    <li class="active">Thanh toán</li>
                 </ol>
+            </div>
+
+            <div class="review-payment">
+                <h2>Xem lại giỏ hàng</h2>
             </div>
             <div class="table-responsive cart_info">
                 <?php
@@ -69,31 +74,40 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </section> <!--/#cart_items-->
-
-    <section id="do_action">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="total_area">
+            <h4 class="payment-title">CHỌN HÌNH THỨC THANH TOÁN</h4>
+            <form action="{{ route('checkout.order') }}" method="POST">
+                @csrf
+                @if ($errors->any())
+                    <div class="alert alert-danger">
                         <ul>
-                            <li>Tổng <span>{{Cart::subtotal(0, ',', '.'). ' ' . 'VND'}}</span></li>
-                            <li>Thuế <span>{{Cart::tax(). ' ' . 'VND'}}</span></li>
-                            <li>Phí vận chuyển <span>Free</span></li>
-                            <li>Thành tiền <span>{{Cart::total(0, ',', '.'). ' ' . 'VND'}}</span></li>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
                         </ul>
+                    </div>
+                @endif
 
-                        @if (session('customer_id'))
-                            <a class="btn btn-default check_out" href="{{route("checkout")}}">Thanh toán</a>
-                        @else
-                            <a class="btn btn-default check_out" href="{{route("checkout.login")}}">Thanh toán</a>
-                        @endif
-
-
+                <div class="payment-options">
+                    <div class="payment-options">
+                    <span>
+                        <input id="atm" name="payment-option" value="TK Ngân hàng" type="radio">
+                        <label for="atm">Thanh toán bằng tài khoản ngân hàng</label>
+                    </span>
+                        <span>
+                        <input id="visa" name="payment-option" value="VISA" type="radio">
+                        <label for="visa">Thanh toán bằng thẻ VISA</label>
+                    </span>
+                        <span>
+                        <input id="cash" name="payment-option" value="Tiền mặt" type="radio">
+                        <label for="cash">Thanh toán bằng tiền mặt</label>
+                    </span>
                     </div>
                 </div>
-            </div>
+                <div style="text-align: center;">
+                    <input type="submit" value="Đặt hàng" name="send_order_place" class="btn btn-primary btn-large">
+                </div>
+            </form>
         </div>
     </section>
+
 @endsection

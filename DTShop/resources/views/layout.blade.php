@@ -1,3 +1,4 @@
+@php use Illuminate\Support\Facades\Session; @endphp
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +38,8 @@
                 <div class="col-sm-4">
                     <div class="logo">
                         <a href="{{route('home.trang-chu')}}">
-                            <img src="{{ URL::to('/') }}/public/frontend/images/home/logodt.png" alt="" width="139" height="auto" />
+                            <img src="{{ URL::to('/') }}/public/frontend/images/home/logodt.png" alt="" width="139"
+                                 height="auto"/>
                         </a>
                     </div>
                 </div>
@@ -45,14 +47,30 @@
                 <div class="col-sm-8">
                     <div class="shop-menu">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Danh sách ước</a></li>
-                            <li><a href="#"><i class="fa fa-crosshairs"></i> Thanh toán</a></li>
-                            <li><a href="#"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                            <?php
+                            $customer_id = Session::get('customer_id');
+                            $shipping_id = Session::get('shipping_id');
+                            ?>
+                                <!-- Thanh toán -->
+                            @if ($customer_id != null && $shipping_id == null)
+                                <li><a href="{{ route('checkout') }}"><i class="fa fa-lock"></i> Thanh toán</a></li>
+                            @elseif ($customer_id != null && $shipping_id != null)
+                                <li><a href="{{ route('payment') }}"><i class="fa fa-lock"></i> Thanh toán</a></li>
+                            @else
+                                <li><a href="{{ route('checkout.login') }}"><i class="fa fa-lock"></i> Thanh toán</a></li>
+                            @endif
+                            <li><a href="{{ route('cart.show') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            <!-- Đăng nhập/Đăng xuất -->
+                            @if ($customer_id)
+                                <li><a href="{{ route('checkout.logout') }}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+                            @else
+                                <li><a href="{{ route('checkout.login') }}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -95,6 +113,25 @@
         </div>
     </div><!--/header-bottom-->
 </header><!--/header-->
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var successAlert = document.getElementById('success-alert');
+        if (successAlert) {
+            setTimeout(function () {
+                successAlert.classList.add('fadeOut');
+                setTimeout(function () {
+                    successAlert.style.display = 'none';
+                }, 1000); // Đảm bảo thông báo bị ẩn hoàn toàn sau khi hiệu ứng fade out kết thúc
+            }, 3000); // Ẩn thông báo sau 3 giây
+        }
+    });
+</script>
+
 
 <section id="slider"><!--slider-->
     <div class="container">
@@ -120,7 +157,8 @@
                                 <button type="button" class="btn btn-default get">Nhận ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/yenhongsam.png" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/yenhongsam.png"
+                                     class="girl img-responsive"
                                      alt=""/>
                             </div>
                         </div>
@@ -128,7 +166,8 @@
                             <div class="col-sm-6">
                                 <h1><span>DT</span>Group</h1>
                                 <h2>Sữa tổ yến</h2>
-                                <p>Sữa tổ yến bổ sung Canxi – Orafti DT Nest là sự kết hợp hài hòa giữa tinh hoa yến đảo,
+                                <p>Sữa tổ yến bổ sung Canxi – Orafti DT Nest là sự kết hợp hài hòa giữa tinh hoa yến
+                                    đảo,
                                     các loại vi chất và nguồn nhiên liệu sữa cao cấp được nhập khẩu từ Châu Âu.
                                     Sữa tổ yến bổ sung Canxi – Orafti DT Nest ngăn ngừa loãng xương,
                                     cải thiện hệ tiêu hóa và hỗ trợ tim mạch khỏe mạnh.
@@ -136,7 +175,8 @@
                                 <button type="button" class="btn btn-default get">Nhận ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/suayen.png" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/suayen.png"
+                                     class="girl img-responsive"
                                      alt=""/>
                             </div>
                         </div>
@@ -151,7 +191,8 @@
                                 <button type="button" class="btn btn-default get">Nhận ngay</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{URL::to('/') }}/public/frontend/images/home/dongtrunghathao.png" class="girl img-responsive"
+                                <img src="{{URL::to('/') }}/public/frontend/images/home/dongtrunghathao.png"
+                                     class="girl img-responsive"
                                      alt=""/>
                             </div>
                         </div>
@@ -178,13 +219,15 @@
                 <div class="left-sidebar">
                     <h2>Loại sản phẩm</h2>
                     <div class="panel-group category-products" id="accordian"><!--category-productsr-->
-                    @foreach($categories as $key => $category)
+                        @foreach($categories as $key => $category)
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="panel-title"><a href="{{URL::to('loai-san-pham/'.$category->categories_id)}}">{{$category->categories_name}}</a></h4>
+                                    <h4 class="panel-title"><a
+                                            href="{{URL::to('loai-san-pham/'.$category->categories_id)}}">{{$category->categories_name}}</a>
+                                    </h4>
                                 </div>
                             </div>
-                    @endforeach
+                        @endforeach
                     </div><!--/category-products-->
 
                     <div class="brands_products"><!--brands_products-->
@@ -192,7 +235,8 @@
                         @foreach($brands as $key => $brand)
                             <div class="brands-name">
                                 <ul class="nav nav-pills nav-stacked">
-                                    <li><a href="{{URL::to('hieu-san-pham/'.$brand->brand_id)}}"> <span class="pull-right">(50)</span>{{$brand->brand_name}}</a></li>
+                                    <li><a href="{{URL::to('hieu-san-pham/'.$brand->brand_id)}}"> <span
+                                                class="pull-right">(50)</span>{{$brand->brand_name}}</a></li>
                                 </ul>
                             </div>
                         @endforeach

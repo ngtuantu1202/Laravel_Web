@@ -25,8 +25,9 @@ class CartController extends Controller
         $data['price'] = $product_info->product_price;
         $data['weight'] = 550;
         $data['options']['image'] = $product_info->product_image;
+        $data['options']['tax'] = 0;
         Cart::add($data);
-
+        //Cart::setGlobalTax(0);
         return Redirect::to('/show-cart');
 
     }
@@ -35,5 +36,18 @@ class CartController extends Controller
         $brands = Brand::where('brand_status', 1)->get();
 
         return view('user.cart.show_cart', compact('categories', 'brands'));
+    }
+
+    public function deleteCart($rowId)
+    {
+        Cart::remove($rowId);
+        return Redirect::to('/show-cart');
+    }
+
+    public function updateCart(Request $request){
+        $rowId = Request()->rowId_cart;
+        $qty = Request()->cart_quantity;
+        Cart::update($rowId, $qty);
+        return Redirect::to('/show-cart');
     }
 }

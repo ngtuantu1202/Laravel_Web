@@ -3,6 +3,7 @@
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -20,17 +21,32 @@ use App\Http\Controllers\AdminController;
 //home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/trang-chu', [HomeController::class, 'index'])->name('home.trang-chu');
+
 //loai san pham
 Route::get('/loai-san-pham/{categoried_id}', [CategoryController::class, 'showCategoryHome'])->name('home.loai-san-pham');
+
 //hieu sp
 Route::get('/hieu-san-pham/{brand_id}', [BrandController::class, 'showBrandHome'])->name('home.hieu-san-pham');
+
 //chi tiet sp
 Route::get('/chi-tiet-san-pham/{product_id}', [ProductController::class, 'detailProduct'])->name('home.detail');
+
 //gio hang
 Route::post('/save-cart', [CartController::class, 'saveCart'])->name('cart.save');
 Route::get('/show-cart', [CartController::class, 'showCart'])->name('cart.show');
+Route::get('/delete-to-cart/{rowId}', [CartController::class, 'deleteCart'])->name('cart.delete');
+Route::post('/update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 
-                                        /* ADMIN */
+//checkout
+Route::get('/login-checkout', [CheckOutController::class, 'loginCheckout'])->name('checkout.login');
+Route::get('/logout-checkout', [CheckOutController::class, 'logoutCheckout'])->name('checkout.logout');
+Route::post('/login-customer', [CheckOutController::class, 'loginCustomer'])->name('checkout.login-customer');
+Route::post('/add-customer', [CheckOutController::class, 'addCustomer'])->name('checkout.add-customer');
+Route::get('/checkout', [CheckOutController::class, 'checkout'])->name('checkout');
+Route::post('/save-checkout-customer', [CheckOutController::class, 'saveCheckoutCustomer'])->name('checkout.save-checkout-customer');
+Route::get('/payment', [CheckOutController::class, 'payment'])->name('payment');
+Route::post('/order', [CheckOutController::class, 'orderPlace'])->name('checkout.order');
+                                            /* ADMIN */
 //home
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 Route::post('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
