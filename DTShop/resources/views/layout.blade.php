@@ -1,5 +1,5 @@
 @php use Illuminate\Support\Facades\Session; @endphp
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -58,14 +58,17 @@
                             @elseif ($customer_id != null && $shipping_id != null)
                                 <li><a href="{{ route('payment') }}"><i class="fa fa-lock"></i> Thanh toán</a></li>
                             @else
-                                <li><a href="{{ route('checkout.login') }}"><i class="fa fa-lock"></i> Thanh toán</a></li>
+                                <li><a href="{{ route('checkout.login') }}"><i class="fa fa-lock"></i> Thanh toán</a>
+                                </li>
                             @endif
                             <li><a href="{{ route('cart.show') }}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                             <!-- Đăng nhập/Đăng xuất -->
                             @if ($customer_id)
-                                <li><a href="{{ route('checkout.logout') }}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
+                                <li><a href="{{ route('checkout.logout') }}"><i class="fa fa-lock"></i> Đăng xuất</a>
+                                </li>
                             @else
-                                <li><a href="{{ route('checkout.login') }}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+                                <li><a href="{{ route('checkout.login') }}"><i class="fa fa-lock"></i> Đăng nhập</a>
+                                </li>
                             @endif
                         </ul>
                     </div>
@@ -105,9 +108,13 @@
                     </div>
                 </div>
                 <div class="col-sm-3">
-                    <div class="search_box pull-right">
-                        <input type="text" placeholder="Tìm kiếm..."/>
-                    </div>
+                    <form action="{{route('home.tim-kiem')}}" method="POST">
+                        @csrf
+                        <div class="search_box pull-right">
+                            <input type="text" name="keyword" placeholder="Tìm kiếm..."/>
+                            <button style="margin-top: 0" type="submit" class="btn btn-primary">Tìm kiếm</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -118,20 +125,6 @@
         {{ session('success') }}
     </div>
 @endif
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var successAlert = document.getElementById('success-alert');
-        if (successAlert) {
-            setTimeout(function () {
-                successAlert.classList.add('fadeOut');
-                setTimeout(function () {
-                    successAlert.style.display = 'none';
-                }, 1000); // Đảm bảo thông báo bị ẩn hoàn toàn sau khi hiệu ứng fade out kết thúc
-            }, 3000); // Ẩn thông báo sau 3 giây
-        }
-    });
-</script>
-
 
 <section id="slider"><!--slider-->
     <div class="container">
@@ -420,5 +413,18 @@
 <script src="{{URL::to('/') }}/public/frontend/js/price-range.js"></script>
 <script src="{{URL::to('/') }}/public/frontend/js/jquery.prettyPhoto.js"></script>
 <script src="{{URL::to('/') }}/public/frontend/js/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var successAlert = document.getElementById('success-alert');
+        if (successAlert) {
+            setTimeout(function () {
+                successAlert.classList.add('fadeOut');
+                setTimeout(function () {
+                    successAlert.style.display = 'none';
+                }, 1000); // Đảm bảo thông báo bị ẩn hoàn toàn sau khi hiệu ứng fade out kết thúc
+            }, 3000); // Ẩn thông báo sau 3 giây
+        }
+    });
+</script>
 </body>
 </html>

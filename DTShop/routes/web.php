@@ -21,7 +21,7 @@ use App\Http\Controllers\AdminController;
 //home
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/trang-chu', [HomeController::class, 'index'])->name('home.trang-chu');
-
+Route::post('/tim-kiem', [HomeController::class, 'search'])->name('home.tim-kiem');
 //loai san pham
 Route::get('/loai-san-pham/{categoried_id}', [CategoryController::class, 'showCategoryHome'])->name('home.loai-san-pham');
 
