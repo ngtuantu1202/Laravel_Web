@@ -13,18 +13,22 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;;
+use Illuminate\Support\Facades\Session;
+
+;
 
 class CheckOutController extends Controller
 {
-    public function loginCheckout(){
+    public function loginCheckout()
+    {
         $categories = Category::where('categories_status', 1)->get();
         $brands = Brand::where('brand_status', 1)->get();
 
         return view('user.checkout.login_checkout', compact('categories', 'brands'));
     }
 
-    public function logoutCheckout(){
+    public function logoutCheckout()
+    {
         Session::flush();
         return Redirect::to('/');
     }
@@ -80,14 +84,16 @@ class CheckOutController extends Controller
     }
 
 
-    public function checkout(){
+    public function checkout()
+    {
         $categories = Category::where('categories_status', 1)->get();
         $brands = Brand::where('brand_status', 1)->get();
 
-        return view('user.checkout.show_checkout',compact('categories','brands'));
+        return view('user.checkout.show_checkout', compact('categories', 'brands'));
     }
 
-    public function saveCheckoutCustomer(Request $request){
+    public function saveCheckoutCustomer(Request $request)
+    {
         $validatedData = $request->validate([
             'shipping_name' => 'required',
             'shipping_phone' => 'required|max:11',
@@ -121,7 +127,8 @@ class CheckOutController extends Controller
         return view('user.checkout.payment', compact('categories', 'brands'));
     }
 
-    public function orderPlace(Request $request){
+    public function orderPlace(Request $request)
+    {
         // Lây thông tin thanh toán
         $payment_option = $request->input('payment-option');
 
@@ -163,10 +170,33 @@ class CheckOutController extends Controller
             ]);
         }
 
-        // Xóa giỏ hàng sau khi đặt hàng
-        Cart::destroy();
 
-        return Redirect::to('/')->with('success', 'Đơn hàng của bạn đã được đặt thành công');
+        // Kiểm tra phương thức thanh toán và xử lý tương ứng
+        if ($payment_option === 'TK Ngân hàng')
+        {
+            $categories = Category::where('categories_status', 1)->get();
+            $brands = Brand::where('brand_status', 1)->get();
+            Cart::destroy();
+            return view('user.checkout.bank');
+        }
+        elseif ($payment_option === 'VISA')
+        {
+            $categories = Category::where('categories_status', 1)->get();
+            $brands = Brand::where('brand_status', 1)->get();
+            Cart::destroy();
+            return view('user.checkout.visa');
+        }
+        elseif ($payment_option === 'Tiền mặt')
+        {
+            $categories = Category::where('categories_status', 1)->get();
+            $brands = Brand::where('brand_status', 1)->get();
+            Cart::destroy();
+            return view('user.checkout.handcash', compact('categories', 'brands'));
+        }
+        else
+        {
+            return Redirect::back()->withErrors(['payment_option' => 'Phương thức thanh toán không hợp lệ']);
+        }
     }
 }
 

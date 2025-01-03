@@ -120,12 +120,6 @@
         </div>
     </div><!--/header-bottom-->
 </header><!--/header-->
-@if (session('success'))
-    <div class="alert alert-success">
-        {{ session('success') }}
-    </div>
-@endif
-
 <section id="slider"><!--slider-->
     <div class="container">
         <div class="row">
@@ -413,18 +407,6 @@
 <script src="{{URL::to('/') }}/public/frontend/js/price-range.js"></script>
 <script src="{{URL::to('/') }}/public/frontend/js/jquery.prettyPhoto.js"></script>
 <script src="{{URL::to('/') }}/public/frontend/js/main.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var successAlert = document.getElementById('success-alert');
-        if (successAlert) {
-            setTimeout(function () {
-                successAlert.classList.add('fadeOut');
-                setTimeout(function () {
-                    successAlert.style.display = 'none';
-                }, 1000); // Đảm bảo thông báo bị ẩn hoàn toàn sau khi hiệu ứng fade out kết thúc
-            }, 3000); // Ẩn thông báo sau 3 giây
-        }
-    });
-</script>
+
 </body>
 </html>
