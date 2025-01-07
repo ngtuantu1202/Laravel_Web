@@ -46,6 +46,7 @@ Route::get('/checkout', [CheckOutController::class, 'checkout'])->name('checkout
 Route::post('/save-checkout-customer', [CheckOutController::class, 'saveCheckoutCustomer'])->name('checkout.save-checkout-customer');
 Route::get('/payment', [CheckOutController::class, 'payment'])->name('payment');
 Route::post('/order', [CheckOutController::class, 'orderPlace'])->name('checkout.order');
+
                                             /* ADMIN */
 //home
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
@@ -84,5 +85,9 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/edit-product/{product_id}', [ProductController::class, 'edit_product'])->name('product.edit');
     Route::get('/delete-product/{product_id}', [ProductController::class, 'delete_product'])->name('product.delete');
     Route::post('/update-product/{product_id}', [ProductController::class, 'update_product'])->name('product.update');
-
+    //Order
+    Route::get('/quan-ly-don-hang', [CheckOutController::class, 'manageOrder'])->name('checkout.manage-order');
+    Route::get('/view-order/{order_id}', [CheckOutController::class, 'viewOrder'])->name('order.view');
+    Route::get('/delete-order/{order_id}', [CheckOutController::class, 'deleteOrder'])->name('order.delete');
+    Route::post('/update-order/{order_id}', [CheckOutController::class, 'updateOrder'])->name('order.update');
 });

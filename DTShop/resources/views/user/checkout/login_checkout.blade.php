@@ -40,24 +40,25 @@
                         <h2>Đăng ký tài khoản mới!</h2>
                         <form action="{{ route('checkout.add-customer') }}" method="post">
                             @csrf
-                            <input type="text" name="customer_name" placeholder="Họ và tên" required/>
                             @if ($errors->has('customer_name'))
                                 <span class="text-danger">
                                     {{ $errors->first('customer_name') }}
                                 </span>
                             @endif
-                            <input type="password" name="customer_password" placeholder="Mật khẩu" required/>
+                            <input type="text" name="customer_name" placeholder="Họ và tên" required/>
                             @if ($errors->has('customer_password'))
                                 <span class="text-danger">
                                     {{ $errors->first('customer_password') }}
                                 </span>
                             @endif
-                            <input type="text" name="customer_phone" placeholder="Số điện thoại" required/>
+                            <input type="password" name="customer_password" placeholder="Mật khẩu" required/>
                             @if ($errors->has('customer_phone'))
                                 <span class="text-danger">
                                     {{ $errors->first('customer_phone') }}
                                 </span>
                             @endif
+                            <input type="text" name="customer_phone" placeholder="Số điện thoại" required/>
+
                             <button type="submit" class="btn btn-default">Đăng ký</button>
                         </form>
                     </div>

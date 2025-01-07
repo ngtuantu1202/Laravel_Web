@@ -101,6 +101,16 @@
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-book"></i>
+                            <span>Danh mục đơn hàng</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="{{route('checkout.manage-order')}}">Quản lý đơn hàng</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
                             <span>Danh mục loại sản phẩm</span>
                         </a>
                         <ul class="sub">

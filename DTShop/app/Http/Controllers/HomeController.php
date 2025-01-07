@@ -28,7 +28,7 @@ class HomeController extends Controller
         $categories = Category::where('categories_status', 1)->get();
         $brands = Brand::where('brand_status', 1)->get();
 
-        //Tìm kiếm
+        //Tìm kiếm sp
         $search_product = Product::select('product_id', 'product_name', 'product_image', 'product_price')
             ->where('product_status', 1)
             ->where('product_name', 'LIKE', '%' . $keywords . '%')

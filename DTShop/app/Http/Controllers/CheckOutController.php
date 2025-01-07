@@ -8,6 +8,7 @@ use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Payment;
+use App\Models\Product;
 use App\Models\Shipping;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
@@ -198,6 +199,48 @@ class CheckOutController extends Controller
             return Redirect::back()->withErrors(['payment_option' => 'Phương thức thanh toán không hợp lệ']);
         }
     }
+
+    public function manageOrder()
+    {
+        $all_order = Order::join('customers', 'orders.customer_id', '=', 'customers.customer_id')
+            ->select('orders.*', 'customers.customer_name')
+            ->orderBy('orders.order_id', 'DESC')
+            ->get();
+        $manager_order = view('admin.manage_order')->with('all_order', $all_order);
+        return view('layout_admin')->with('admin.manage_order', $manager_order);
+    }
+
+
+    public function viewOrder($order_id)
+    {
+        $order_by_id = Order::join('customers', 'orders.customer_id', '=', 'customers.customer_id')
+            ->join('shippings', 'orders.shipping_id', '=', 'shippings.shipping_id')
+            ->join('order_details', 'orders.order_id', '=', 'order_details.order_id')
+            ->select('orders.*', 'customers.customer_name', 'customers.customer_phone', 'shippings.shipping_name', 'shippings.shipping_address', 'shippings.shipping_phone', 'order_details.product_name', 'order_details.product_quantity', 'order_details.product_price')
+            ->where('orders.order_id', $order_id)
+            ->get();
+
+        return view('admin.view_order', compact('order_by_id'));
+    }
+
+    public function updateOrder(Request $request, $order_id) {
+        $order = Order::find($order_id);
+        if (!$order) {
+            return Redirect::back()->withErrors(['order_not_found' => 'Không tìm thấy đơn hàng']);
+        }
+        $order->update([ 'order_status' => $request->order_status, ]);
+        return Redirect::route('checkout.manage-order')
+            ->with('success', 'Đơn hàng đã được cập nhật thành công');
+    }
+
+    public function deleteOrder($order_id) {
+        $order = Order::find($order_id);
+        if (!$order) {
+            return Redirect::back()->withErrors(['order_not_found' => 'Không tìm thấy đơn hàng']);
+        }
+        $order->delete();
+        return Redirect::route('checkout.manage-order')
+            ->with('success', 'Đơn hàng đã được xóa thành công'); }
 }
 
 
